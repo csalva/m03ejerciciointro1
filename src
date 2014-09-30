@@ -1,0 +1,84 @@
+package m03ejerciciointro1;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ *
+ * @author cris
+ */
+public class M03ejerciciointro1 {
+
+    private static BufferedReader pantalla = new BufferedReader(new InputStreamReader(System.in));
+    //declaro array
+    static int[] array;
+    static String input;
+    static int narray, posicio, valor, i;
+
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
+        apartadoA();
+        apartadoB();
+        apartadoC();
+    }
+
+    public static void apartadoA() throws IOException {
+        System.out.println("Numero de elementos del array");
+        input = pantalla.readLine();
+        narray = Integer.parseInt(input);
+
+        array = new int[narray];
+        //recorrer el array i despres ocuparlo amb numeros randoms
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 100 + 0);
+            System.out.println(array[i]);
+        }
+        System.out.println("posició del array ");
+        input = pantalla.readLine();
+        posicio = Integer.parseInt(input);
+
+        System.out.println("valor del array ");
+        input = pantalla.readLine();
+        valor = Integer.parseInt(input);
+
+        if (i >= 0 && i < array.length) {
+            array[posicio] = valor;
+        }
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+
+    public static void apartadoB() {
+        int max = array[0];
+        int min = array[0];
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+        System.out.println("el valor mes alt: " + max);
+        System.out.println("el valor mes baix: " + min);
+    }
+
+    private static void apartadoC() throws IOException {
+        float mitjana = 0.f;
+        for (int i = 0; i < array.length; i++) {
+            mitjana = mitjana + array[i];
+        }
+        mitjana = mitjana / array.length;
+
+        System.out.println("la mitjana del array es: " + mitjana);
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > mitjana) {
+                System.out.println("valors mes alts que la mitjana:" + array[i]);
+            }
+        }
+    }
+}
